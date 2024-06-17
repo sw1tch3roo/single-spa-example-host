@@ -1,0 +1,41 @@
+{
+  "files": ["src/main.ts"],
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "dist",
+    "isolatedModules": true,
+    "composite": true,
+    "outDir": "./dist/",
+    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015",
+      "es2015.promise",
+      "es2016.array.include",
+      "es2018"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "types": ["vite/client"]
+  },
+  "include": ["env.d.ts", "vite.config.*", "src/**/*"],
+  "exclude": ["src/**/*.test*"],
+  "typeRoots": ["declaration.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
