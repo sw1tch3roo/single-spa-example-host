@@ -1,0 +1,16 @@
+<single-spa-router mode="history">
+<!--  <nav>-->
+<!--    <application name="@organization/example-navbar"></application>-->
+<!--  </nav>-->
+  <main>
+    <route default>
+      <application name="@organization/example"></application>
+    </route>
+    <route path="healthcheck">
+      <div>200</div>
+    </route>
+    <route path="app2">
+      <application name="@organization/example2"></application>
+    </route>
+  </main>
+</single-spa-router>
