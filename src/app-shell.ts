@@ -4,17 +4,22 @@ import {
   constructRoutes,
   constructLayoutEngine
 } from 'single-spa-layout'
-import microLayout from './microfrontend-layout.html?raw'
 
-const routes = constructRoutes(microLayout)
+const routes = constructRoutes(document.querySelector('#single-spa-layout')!)
 
 const applications = constructApplications({
   routes,
-  loadApp: ({ name }) => import(/* @vite-ignore */ name)
+  loadApp: ({ name }) =>
+    import(
+      /* @vite-ignore */
+      // @ts-ignore
+      name
+    )
 })
 
 const layoutEngine = constructLayoutEngine({ routes, applications })
 
 applications.forEach(registerApplication)
 layoutEngine.activate()
+
 start()

@@ -1,23 +1,9 @@
 {
-  "files": ["src/main.ts"],
+  "files": ["src/app-shell.ts"],
   "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": "dist",
-    "isolatedModules": true,
-    "composite": true,
     "outDir": "./dist/",
     "target": "es5",
-    "allowSyntheticDefaultImports": true,
-    "lib": [
-      "dom",
-      "es5",
-      "scripthost",
-      "es2015",
-      "es2015.promise",
-      "es2016.array.include",
-      "es2018"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
@@ -26,16 +12,18 @@
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
+    "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": ["vite/client"]
+    "types": ["vite/client", "node"]
   },
-  "include": ["env.d.ts", "vite.config.*", "src/**/*"],
-  "exclude": ["src/**/*.test*"],
+  "include": ["types/**/*", "**/*.ts", "**/*.tsx", "@types"],
+  "exclude": ["node_modules", "**/*.cy.*", "vite.config.ts"],
   "typeRoots": ["declaration.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

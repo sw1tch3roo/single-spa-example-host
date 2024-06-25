@@ -1,6 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-public/sw.js
 public/workbox-*.js
 config.json
 
@@ -11,7 +10,6 @@ config.json
 .pnp.js
 /.idea
 robots.txt
-sw*
 workbox*
 .fleet/
 

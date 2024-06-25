@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "app-shell": "/app-shell.js",
+    "@organization/example-react": "//localhost:3001/example-react.js",
+    "@organization/example-vue": "//localhost:3002/example-vue.js"
+  }
+}
