@@ -1,10 +1,3 @@
-#!/usr/bin/env sh
-set -a
-. "$(dirname -- "$0")/_/husky.sh"
-[ -f .env ] && . .env
-set +a
-
-
 echo '🏗️👷 Refactor, styling, testing and building your project before committing'
 
 pnpm audit ||
