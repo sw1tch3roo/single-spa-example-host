@@ -7,13 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      single-spa:
-        specifier: ^6.0.1
-        version: 6.0.1
-      single-spa-layout:
-        specifier: ^2.2.0
-        version: 2.2.0
     devDependencies:
       '@types/node':
         specifier: ^20.14.2
@@ -21,6 +14,12 @@ importers:
       '@types/systemjs':
         specifier: ^6.13.5
         version: 6.13.5
+      single-spa:
+        specifier: ^6.0.1
+        version: 6.0.1
+      single-spa-layout:
+        specifier: ^2.2.0
+        version: 2.2.0
       typescript:
         specifier: ^5.4.5
         version: 5.4.5

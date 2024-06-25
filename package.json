@@ -8,15 +8,13 @@
     "preview": "vite build && vite preview --host --port 8000",
     "start": "serve -l 8000 -s dist"
   },
-  "dependencies": {
-    "single-spa": "^6.0.1",
-    "single-spa-layout": "^2.2.0"
-  },
   "devDependencies": {
     "@types/node": "^20.14.2",
     "@types/systemjs": "^6.13.5",
     "typescript": "^5.4.5",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "single-spa": "^6.0.1",
+    "single-spa-layout": "^2.2.0"
   },
   "packageManager": "pnpm@9.0.0+sha256.bdfc9a7b372b5c462176993e586492603e20da5864d2f8881edc2462482c76fa"
 }
