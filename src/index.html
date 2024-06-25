@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <link href="./index.css" rel="stylesheet" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="description" content="Single SPA Example App Shell" />
+    <title>Single SPA Example App Shell</title>
+
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * data: blob: filesystem: about: ws: wss: 'unsafe-inline' 'unsafe-eval'; script-src * data: blob: 'unsafe-inline' 'unsafe-eval'; connect-src * data: blob: 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src * data: blob: ; style-src * data: blob: 'unsafe-inline'; font-src * data: blob: 'unsafe-inline';"
+    />
+    <script src="/config.js"></script>
+    <script
+      async
+      src="https://ga.jspm.io/npm:import-map-overrides@3.1.1/dist/import-map-overrides.js"
+    ></script>
+    <script
+      async
+      src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"
+    ></script>
+    <script
+      async
+      src="https://ga.jspm.io/npm:regenerator-runtime@0.14.1/runtime.js"
+    ></script>
+
+    <link rel="shortcut icon" sizes="16x16" href="/images/favicon.ico" />
+    <link rel="icon" sizes="192x192" href="/images/logo.png" />
+    <link
+      rel="alternate icon"
+      href="/images/favicon.ico"
+      type="image/png"
+      sizes="16x16"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/images/apple-touch-icon.png"
+      sizes="128x128"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/images/apple-touch-icon.png"
+      sizes="156x156"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/images/apple-touch-icon.png"
+      sizes="167x167"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/images/apple-touch-icon.png"
+      sizes="180x180"
+    />
+    <link rel="mask-icon" href="/images/logo.png" color="#FFFFFF" />
+    <meta name="theme-color" content="#6841F3" />
+
+    <script type="importmap-shim" defer src="/shared.importmap.json"></script>
+    <script type="importmap-shim" async src="/modules.importmap.json"></script>
+
+    <% if (isLocal) { %>
+    <script type="module" src="/devSupport.ts"></script>
+    <link
+      rel="preload"
+      href="<%= 'http://localhost:3001' %>/assets/example-react.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <link
+      rel="preload"
+      href="<%= 'http://localhost:3002' %>/assets/example-vue.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <% } else { %>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const loadStylesheet = (href) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = href
+          document.head.appendChild(link)
+        }
+
+        loadStylesheet(
+          `${window.location.origin}/react-app/assets/example-react.css`
+        )
+        loadStylesheet(
+          `${window.location.origin}/vue-app/assets/example-vue.css`
+        )
+      })
+    </script>
+
+    <script type="module">
+      import { registerSW } from 'virtual:pwa-register'
+      if ('serviceWorker' in navigator) {
+        registerSW()
+      }
+    </script>
+    <% } %>
+
+    <template id="single-spa-layout">
+      <single-spa-router mode="history">
+        <nav>
+          <application name="@organization/example-navbar"></application>
+        </nav>
+        <main>
+          <route default>
+            <application name="@organization/example-react"></application>
+          </route>
+          <route path="healthcheck">
+            <div>200</div>
+          </route>
+          <route path="vue">
+            <application name="@organization/example-vue"></application>
+          </route>
+        </main>
+      </single-spa-router>
+    </template>
+  </head>
+
+  <body>
+    <div id="loading">
+      <noscript><canvas></canvas></noscript>
+    </div>
+
+    <script
+      type="module-shim"
+      defer
+      src="/app-shell.<%= isLocal ? 'ts' : 'js' %>"
+    ></script>
+  </body>
+</html>

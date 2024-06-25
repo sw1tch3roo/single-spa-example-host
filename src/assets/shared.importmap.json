@@ -1,0 +1,21 @@
+{
+  "imports": {
+    "effector": "https://ga.jspm.io/npm:effector@23.2.2/effector.mjs",
+    "effector-react": "https://ga.jspm.io/npm:effector-react@23.2.1/effector-react.mjs",
+    "react": "https://ga.jspm.io/npm:react@18.3.1/index.js",
+    "react-dom": "https://ga.jspm.io/npm:react-dom@18.3.1/index.js",
+    "react-router": "https://ga.jspm.io/npm:react-router@6.23.1/dist/main.js",
+    "react-router-dom": "https://ga.jspm.io/npm:react-router-dom@6.23.1/dist/main.js",
+    "single-spa": "https://ga.jspm.io/npm:single-spa@6.0.1/lib/es2015/esm/single-spa.min.js",
+    "single-spa-layout": "https://ga.jspm.io/npm:single-spa-layout@2.2.0/dist/esm/single-spa-layout.min.js"
+  },
+  "scopes": {
+    "https://ga.jspm.io/": {
+      "@remix-run/router": "https://ga.jspm.io/npm:@remix-run/router@1.16.1/dist/router.cjs.js",
+      "effector/effector.mjs": "https://ga.jspm.io/npm:effector@23.2.2/effector.mjs",
+      "scheduler": "https://ga.jspm.io/npm:scheduler@0.23.2/index.js",
+      "use-sync-external-store/shim": "https://ga.jspm.io/npm:use-sync-external-store@1.2.2/shim/index.js",
+      "use-sync-external-store/shim/": "https://ga.jspm.io/npm:use-sync-external-store@1.2.2/shim/"
+    }
+  }
+}
